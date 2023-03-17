@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+.videoPlayer {
+  font-family: "Roboto Mono", monospace;
+}
+html {
+  height: 100%;
+}
+body {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root{
+  margin-left: -200px;
+}

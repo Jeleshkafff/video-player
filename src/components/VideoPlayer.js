@@ -1,16 +1,15 @@
 import React, { Component } from "react";
 import "./VideoPlayer.css";
-import { Button, Header, Icon, Modal } from 'semantic-ui-react';
-// import Modal from 'react-modal';
+import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import Setting from "./Setting/Setting";
 
- 
 class VideoPlayer extends Component {
   constructor(props) {
     super(props);
-    this.videoPlayer = React.createRef(); //reference for the entire videoPlayer
-    this.videoRef = React.createRef(); // reference for the video element
-    this.progressBar = React.createRef(); // reference for the progressbar
-    this.progress = React.createRef(); // reference for the progress inside the progressbar
+    this.videoPlayer = React.createRef();
+    this.videoRef = React.createRef();
+    this.progressBar = React.createRef();
+    this.progress = React.createRef();
     this.volumeProgress = React.createRef();
   }
   /*
@@ -32,28 +31,21 @@ class VideoPlayer extends Component {
     isVolumeOn: true,
     volumeValue: 1,
     volumePercentage: 100,
-    isShowingControls: true
+    isShowingControls: true,
   };
 
   componentDidMount() {
     console.log(this.videoRef);
   }
 
-  /**
-   *onLoadedData - we need to update the completeDurationInSeconds and completeDuration
-   */
   updateCompleteDuration = () => {
     let tempDur = this.videoRef.current.duration;
     this.setState({
       completeDurationInSeconds: tempDur,
-      completeDuration: calculateDuration(tempDur)
+      completeDuration: calculateDuration(tempDur),
     });
   };
 
-  /**
-   * onTimeUpdate - while the video is playing update the currentTimeInSeconds, currentDuration {hours,minutes,seconds} and the progressPercentage
-   * toFixed(2) - used to fix the duration values to atmost 2 digits after precision
-   */
   updateCurrentDuration = () => {
     let tempCurrentTime = this.videoRef.current.currentTime;
     let tempDur = this.state.completeDurationInSeconds;
@@ -63,53 +55,31 @@ class VideoPlayer extends Component {
       progressPercentage: getPercentage(
         tempCurrentTime.toFixed(2),
         tempDur.toFixed(2)
-      )
+      ),
     });
   };
 
-  /**
-   *onEnded - once the video is ended set the isPlaying state to false
-   */
   updateEnded = () => {
     this.setState({ isPlaying: false, isShowingControls: true });
     this.videoRef.current.currentTime = 0;
   };
 
-  /*
-    handles the play button click and set the isPlaying to TRUE
-  */
   handlePlay = () => {
     this.videoRef.current.play();
     this.setState({ isPlaying: true });
   };
-
-  /**
-   * handles the pause state and set the isPlaying to FALSE
-   */
 
   handlePause = () => {
     this.videoRef.current.pause();
     this.setState({ isPlaying: false });
   };
 
-  /**
-   * handles the clikc on the progressbar
-   *
-   * How to Calculate the ProgressPosition
-   *  ==> Get the x-coordinate value of the pointer clicked using e.pageX (gives the x position)
-   *  ==> get the position of the videoPlayer from left
-   *  ==> set the progressPosition = e.pageX - this.videoPlayer.current.offsetLeft (gives the click position on the video player)
-   *  ==> we need to calculate the progress bar percentage based on the click - ( click Position / video player width) * 100 --> percentage
-   *
-   * Setting the current time
-   *  ==> currentTime = (click position * video complete duration in seconds) / progressbar width
-   */
-  handleProgress = e => {
+  handleProgress = (e) => {
     let tempProgressPosition = e.pageX - this.videoPlayer.current.offsetLeft;
     let tempProgressPercentage =
       (tempProgressPosition / this.videoPlayer.current.clientWidth) * 100;
     this.setState({
-      progressPercentage: tempProgressPercentage
+      progressPercentage: tempProgressPercentage,
     });
     this.videoRef.current.currentTime =
       (tempProgressPosition * this.state.completeDurationInSeconds) /
@@ -125,11 +95,11 @@ class VideoPlayer extends Component {
 
   updateVolume = () => {
     this.setState({
-      volumePercentage: this.videoRef.current.volume * 100
+      volumePercentage: this.videoRef.current.volume * 100,
     });
   };
 
-  setVolume = e => {
+  setVolume = (e) => {
     let tempVolumePosition =
       e.pageX -
       this.videoPlayer.current.offsetLeft -
@@ -141,7 +111,7 @@ class VideoPlayer extends Component {
 
     this.setState({
       volumeValue: tempVolumeValue,
-      isVolumeOn: true
+      isVolumeOn: true,
     });
   };
 
@@ -154,16 +124,12 @@ class VideoPlayer extends Component {
     }
   };
 
-  render() { 
-
-    /**
-     * setting the width of the progress inside progressbar
-     */
+  render() {
     let progressStyle = {
-      width: this.state.progressPercentage + "%"
+      width: this.state.progressPercentage + "%",
     };
     let volumeProgressStyle = {
-      width: this.state.volumePercentage + "%"
+      width: this.state.volumePercentage + "%",
     };
     return (
       <div className="test">
@@ -175,7 +141,6 @@ class VideoPlayer extends Component {
           onMouseEnter={this.updateShowControls}
           onMouseLeave={this.updateHideControls}
         >
-          
           <video
             src={this.props.src}
             ref={this.videoRef}
@@ -188,7 +153,7 @@ class VideoPlayer extends Component {
             <div
               className="progress-bar"
               ref={this.progressBar}
-              onClick={e => this.handleProgress(e)}
+              onClick={(e) => this.handleProgress(e)}
             >
               <span
                 className="progress"
@@ -208,7 +173,7 @@ class VideoPlayer extends Component {
                 <div
                   className="volume-progressbar"
                   ref={this.volumeProgress}
-                  onClick={e => this.setVolume(e)}
+                  onClick={(e) => this.setVolume(e)}
                 >
                   <span
                     className="volume-progress"
@@ -235,19 +200,14 @@ class VideoPlayer extends Component {
                   {this.state.currentDuration.minutes}:
                   {this.state.currentDuration.seconds}
                 </div>
-                
+
                 <div className="end-time time">
                   {this.state.completeDuration.hours}:
                   {this.state.completeDuration.minutes}:
                   {this.state.completeDuration.seconds}
                 </div>
                 <div>
-                <button className="control-btn setting" >
-                
-                    <i className="material-icons">build</i>
-                    
-                    
-                  </button>
+                  <Setting />
                 </div>
               </div>
             </div>
@@ -263,7 +223,7 @@ export default VideoPlayer;
 /**
  *  function that takes in the complete duration and returns the duration in format {hours:00,minutes:00,seconds:00}
  */
-const calculateDuration = function(duration) {
+const calculateDuration = function (duration) {
   let seconds = parseInt(duration % 60);
   let minutes = parseInt((duration % 3600) / 60);
   let hours = parseInt(duration / 3600);
@@ -271,12 +231,12 @@ const calculateDuration = function(duration) {
   return {
     hours: pad(hours),
     minutes: pad(minutes.toFixed()),
-    seconds: pad(seconds.toFixed())
+    seconds: pad(seconds.toFixed()),
   };
 };
 
 /* used to prepend the single digit value with a Leading 0 and returns in string format*/
-const pad = function(number) {
+const pad = function (number) {
   if (number > -10 && number < 10) {
     return "0" + number;
   } else {
@@ -290,7 +250,7 @@ const pad = function(number) {
  *
  * basic percentage formula which is rounded
  */
-const getPercentage = function(presentTime, totalTime) {
+const getPercentage = function (presentTime, totalTime) {
   let calcPercentage = (presentTime / totalTime) * 100;
   return Math.round(calcPercentage);
 };

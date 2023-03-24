@@ -1,9 +1,9 @@
 :root {
   --player-color: rgba(26, 29, 26, 0.25);
-  --progress-color: #ad5bec;
+  --progress-color: rgb(91, 236, 199);
   --progressbar-color: rgba(223, 224, 226, 0.55);
-  --text-color: #a2aebb;
-  
+  --text-color: rgb(162, 174, 187);
+
   --easing: 0.25s;
 }
 .videoPlayer {
@@ -18,7 +18,6 @@
 .videoPlayer video {
   max-width: var(--video-player-width);
   /* margin: auto; */
-
 }
 
 .video-info {
@@ -122,17 +121,17 @@
   background-color: var(--progress-color);
   transition: all ease var(--easing);
 }
-.test{
+.test {
   width: 1400px;
   height: 800px;
 }
-body{
-  background-color:rgb(0, 0, 0);
+body {
+  background-color: rgb(0, 0, 0);
   margin: 0;
   padding: 0;
 }
 .videoPlayer {
-  width:1600px;
+  width: 1600px;
   height: 800px;
   margin: 0;
 }

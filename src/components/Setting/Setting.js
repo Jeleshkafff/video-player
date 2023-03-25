@@ -27,13 +27,14 @@ const customStyles = {
 
 // Modal.setAppElement("#yourAppElement");
 
-function Setting() {
+function Setting(props) {
+  const { red, green, blue, nothing, onChange } = props;
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [red, setRed] = React.useState(localStorage.getItem("red"));
-  const [green, setGreen] = React.useState(localStorage.getItem("green"));
-  const [blue, setBlue] = React.useState(localStorage.getItem("blue"));
-  const [nothing, setNothing] = React.useState(localStorage.getItem("nothing"));
+  // const [red, setRed] = React.useState(localStorage.getItem("red"));
+  // const [green, setGreen] = React.useState(localStorage.getItem("green"));
+  // const [blue, setBlue] = React.useState(localStorage.getItem("blue"));
+  // const [nothing, setNothing] = React.useState(localStorage.getItem("nothing"));
 
   function openModal() {
     setIsOpen(true);
@@ -80,7 +81,8 @@ function Setting() {
               onChange={(event) => {
                 console.log(` ${event.target.value}`);
                 localStorage.setItem("red", event.target.value);
-                setRed(event.target.value);
+                // setRed(event.target.value);
+                onChange({ red: event.target.value });
                 // this.setState({ red: event.target.value });
               }}
             />
@@ -96,7 +98,8 @@ function Setting() {
               onChange={(event) => {
                 console.log(` ${event.target.value}`);
                 localStorage.setItem("green", event.target.value);
-                setGreen(event.target.value);
+                // setGreen(event.target.value);
+                onChange({ green: event.target.value });
               }}
             />
           </div>
@@ -112,7 +115,8 @@ function Setting() {
                 console.log(` ${event.target.value}`);
                 localStorage.setItem("blue", event.target.value);
                 // this.value = event.target.value;
-                setBlue(event.target.value);
+                // setBlue(event.target.value);
+                onChange({ blue: event.target.value });
               }}
             />
           </div>
@@ -127,7 +131,8 @@ function Setting() {
               onChange={(event) => {
                 console.log(` ${event.target.value}`);
                 localStorage.setItem("nothing", event.target.value);
-                setNothing(event.target.value);
+                // setNothing(event.target.value);
+                onChange({ nothing: event.target.value });
               }}
             />
           </div>

@@ -22,12 +22,6 @@ class VideoPlayer extends Component {
     this.progressBar = React.createRef();
     this.progress = React.createRef();
     this.volumeProgress = React.createRef();
-    this.states = {
-      red: localStorage.getItem("red"),
-      green: localStorage.getItem("green"),
-      blue: localStorage.getItem("blue"),
-      nothing: localStorage.getItem("nothing"),
-    };
   }
 
   state = {
@@ -41,6 +35,10 @@ class VideoPlayer extends Component {
     volumeValue: 1,
     volumePercentage: 100,
     isShowingControls: true,
+    red: localStorage.getItem("red"),
+    green: localStorage.getItem("green"),
+    blue: localStorage.getItem("blue"),
+    nothing: localStorage.getItem("nothing"),
   };
 
   componentDidMount() {
@@ -140,7 +138,7 @@ class VideoPlayer extends Component {
       width: "1600px",
       height: "800px",
       // padding: "1000px",
-      backgroundColor: `rgba(${this.states.red}, ${this.states.green}, ${this.states.blue}, ${this.states.nothing}%)`,
+      backgroundColor: `rgba(${this.state.red}, ${this.state.green}, ${this.state.blue}, ${this.state.nothing}%)`,
     };
     console.log(this.RedStste);
     let progressStyle = {
@@ -226,7 +224,13 @@ class VideoPlayer extends Component {
                   {this.state.completeDuration.seconds}
                 </div>
                 <div>
-                  <Setting />
+                  <Setting
+                    red={this.state.red}
+                    green={this.state.green}
+                    blue={this.state.blue}
+                    nothing={this.state.nothing}
+                    onChange={this.setState.bind(this)}
+                  />
                 </div>
               </div>
             </div>

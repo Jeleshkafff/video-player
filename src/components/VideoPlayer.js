@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import "./VideoPlayer.css";
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
+// import { Button, Header, Icon, Modal } from "semantic-ui-react";
 import Setting from "./Setting/Setting";
+// import { useState } from "react";
+
+let style = {
+  position: "absolute",
+  width: "1600px",
+  height: "800px",
+  // padding: "1000px",
+  backgroundColor: `rgba(${localStorage.getItem("red")}, ${localStorage.getItem(
+    "green"
+  )}, ${localStorage.getItem("blue")}, ${localStorage.getItem("nothing")}%)`,
+};
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -12,6 +23,7 @@ class VideoPlayer extends Component {
     this.progress = React.createRef();
     this.volumeProgress = React.createRef();
   }
+
   /*
   state contains
   currentTimeInSeconds - current time while the video is playing
@@ -119,12 +131,29 @@ class VideoPlayer extends Component {
     this.setState({ isShowingControls: true });
   };
   updateHideControls = () => {
+    // const [red, setRed] = React.useState(localStorage.getItem("red"));
     if (!this.videoRef.current.paused && !this.videoRef.current.ended) {
       this.setState({ isShowingControls: false });
     }
   };
 
   render() {
+    let RedStste = () => {
+      const [red, setRed] = React.useState(localStorage.getItem("red"));
+      const [green, setGreen] = React.useState(localStorage.getItem("green"));
+      const [blue, setBlue] = React.useState(localStorage.getItem("blue"));
+      const [nothing, setNothing] = React.useState(
+        localStorage.getItem("nothing")
+      );
+      let style = {
+        position: "absolute",
+        width: "1600px",
+        height: "800px",
+        // padding: "1000px",
+        backgroundColor: `rgba(${red}, ${green}, ${blue}, ${nothing}%)`,
+      };
+      return style;
+    };
     let progressStyle = {
       width: this.state.progressPercentage + "%",
     };
@@ -133,6 +162,7 @@ class VideoPlayer extends Component {
     };
     return (
       <div className="test">
+        <div style={style}></div>
         <div
           className={`videoPlayer ${
             this.state.isShowingControls ? "show-controls" : "hide-controls"

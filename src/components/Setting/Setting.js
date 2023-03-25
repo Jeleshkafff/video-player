@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Modal from "react-modal";
 import Ranges from "./Color/Color";
@@ -23,6 +23,13 @@ const customStyles = {
     // transform: "translate(-50%, -50%)",
   },
 };
+let style = {
+  width: "10px",
+  height: "10px",
+  backgroundColor: `rgba(${localStorage.getItem("red")}, ${localStorage.getItem(
+    "green"
+  )}, ${localStorage.getItem("blue")}, ${localStorage.getItem("nothing")})`,
+};
 
 // Modal.setAppElement("#yourAppElement");
 
@@ -41,6 +48,9 @@ function Setting() {
 
   function closeModal() {
     setIsOpen(false);
+  }
+  function selecting() {
+    console.log(this.value);
   }
 
   return (
@@ -61,20 +71,63 @@ function Setting() {
         <form>
           {/* <input /> */}
           <div>
+            <div style={style}></div>
             <h4>Красный</h4>
-            <input type="range" min="0" max="100" />
+            <input
+              id="myRange"
+              type="range"
+              min="0"
+              max="255"
+              value={localStorage.getItem("red")}
+              step="1"
+              onChange={(event) => {
+                console.log(` ${event.target.value}`);
+                localStorage.setItem("red", event.target.value);
+              }}
+            />
           </div>
           <div>
             <h4>Зеленый</h4>
-            <input type="range" min="0" max="100" />
+            <input
+              type="range"
+              min="0"
+              max="255"
+              value={localStorage.getItem("green")}
+              step="1"
+              onChange={(event) => {
+                console.log(` ${event.target.value}`);
+                localStorage.setItem("green", event.target.value);
+              }}
+            />
           </div>
           <div>
             <h4>Голубой</h4>
-            <input type="range" min="0" max="100" />
+            <input
+              type="range"
+              min="0"
+              max="255"
+              value={localStorage.getItem("blue")}
+              step="1"
+              onChange={(event) => {
+                console.log(` ${event.target.value}`);
+                localStorage.setItem("blue", event.target.value);
+                // this.value = event.target.value;
+              }}
+            />
           </div>
           <div>
             <h4>Прозрачный</h4>
-            <input type="range" min="0" max="100" />
+            <input
+              type="range"
+              min="0"
+              max="100"
+              value={localStorage.getItem("nothing")}
+              step="1"
+              onChange={(event) => {
+                console.log(` ${event.target.value}`);
+                localStorage.setItem("nothing", event.target.value);
+              }}
+            />
           </div>
 
           {/* <Ranges /> */}

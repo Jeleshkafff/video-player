@@ -81,6 +81,7 @@ function Setting() {
                 console.log(` ${event.target.value}`);
                 localStorage.setItem("red", event.target.value);
                 setRed(event.target.value);
+                // this.setState({ red: event.target.value });
               }}
             />
           </div>

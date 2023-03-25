@@ -4,15 +4,15 @@ import "./VideoPlayer.css";
 import Setting from "./Setting/Setting";
 // import { useState } from "react";
 
-let style = {
-  position: "absolute",
-  width: "1600px",
-  height: "800px",
-  // padding: "1000px",
-  backgroundColor: `rgba(${localStorage.getItem("red")}, ${localStorage.getItem(
-    "green"
-  )}, ${localStorage.getItem("blue")}, ${localStorage.getItem("nothing")}%)`,
-};
+// let style = {
+//   position: "absolute",
+//   width: "1600px",
+//   height: "800px",
+//   // padding: "1000px",
+//   backgroundColor: `rgba(${localStorage.getItem("red")}, ${localStorage.getItem(
+//     "green"
+//   )}, ${localStorage.getItem("blue")}, ${localStorage.getItem("nothing")}%)`,
+// };
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -22,17 +22,14 @@ class VideoPlayer extends Component {
     this.progressBar = React.createRef();
     this.progress = React.createRef();
     this.volumeProgress = React.createRef();
+    this.states = {
+      red: localStorage.getItem("red"),
+      green: localStorage.getItem("green"),
+      blue: localStorage.getItem("blue"),
+      nothing: localStorage.getItem("nothing"),
+    };
   }
 
-  /*
-  state contains
-  currentTimeInSeconds - current time while the video is playing
-  completeDurationInSeconds - complete duration of the video
-  currentDuration - show the currentTimeInSeconds as {hours,minutes,seconds}
-  completeDuration - show the completeDurationInSeconds as {hours,minutes,seconds}
-  isPlaying - determines the play state of the video
-  progressPercentage - percentage value of the progress
-  */
   state = {
     currentTimeInSeconds: 0,
     completeDurationInSeconds: 0,
@@ -138,22 +135,14 @@ class VideoPlayer extends Component {
   };
 
   render() {
-    let RedStste = () => {
-      const [red, setRed] = React.useState(localStorage.getItem("red"));
-      const [green, setGreen] = React.useState(localStorage.getItem("green"));
-      const [blue, setBlue] = React.useState(localStorage.getItem("blue"));
-      const [nothing, setNothing] = React.useState(
-        localStorage.getItem("nothing")
-      );
-      let style = {
-        position: "absolute",
-        width: "1600px",
-        height: "800px",
-        // padding: "1000px",
-        backgroundColor: `rgba(${red}, ${green}, ${blue}, ${nothing}%)`,
-      };
-      return style;
+    let style = {
+      position: "absolute",
+      width: "1600px",
+      height: "800px",
+      // padding: "1000px",
+      backgroundColor: `rgba(${this.states.red}, ${this.states.green}, ${this.states.blue}, ${this.states.nothing}%)`,
     };
+    console.log(this.RedStste);
     let progressStyle = {
       width: this.state.progressPercentage + "%",
     };

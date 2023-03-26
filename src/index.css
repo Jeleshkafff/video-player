@@ -1,16 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
-.videoPlayer {
-  font-family: "Roboto Mono", monospace;
-}
-html {
+html{
+  font-family: 'MTS Sans';
+  font-weight: Regular;
+  font-style: normal;
+  font-size: 24px;
   height: 100%;
+  color: white;
 }
-body {
+p{
+  margin: 0;
+}
+body{
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#root{
-  margin-left: -200px;
+  background-color: rgb(0,20,36,1);
 }

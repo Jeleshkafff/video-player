@@ -1,16 +1,17 @@
 import React from "react";
 import VideoPlayer from "./components/VideoPlayer";
-// const path = "./videos/video.mp4";
+import FilmPage from "./components/FilmPage";
 import path from "./videos/video.mp4";
 import "./App.css";
-
+import { Router, Routes,Route } from 'react-router-dom';
 const App = (props) => {
   console.log(path);
   return (
     <div>
-      {/* <div className="color"></div> */}
-
-      <VideoPlayer src={path} />
+      <Routes>
+        <Route path="/" element={<FilmPage/>} /> 
+        <Route path="/video" element={<VideoPlayer src={path} />} /> 
+      </Routes>
     </div>
   );
 };

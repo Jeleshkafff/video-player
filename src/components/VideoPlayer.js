@@ -137,6 +137,7 @@ class VideoPlayer extends Component {
       position: "absolute",
       width: "1600px",
       height: "800px",
+
       // padding: "1000px",
       backgroundColor: `rgba(${this.state.red}, ${this.state.green}, ${this.state.blue}, ${this.state.nothing}%)`,
     };

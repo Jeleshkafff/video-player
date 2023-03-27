@@ -103,3 +103,10 @@
   /* margin-right: 200px; */
   /* position: ; */
 }
+.catt {
+  width: 100px;
+  height: 100px;
+  top: 19px;
+  right: 30px;
+  position: fixed;
+}

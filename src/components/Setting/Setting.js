@@ -7,7 +7,7 @@ import "./Setting.css";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
+// import "../../../../public/cat.png";
 const customStyles = {
   overlay: {
     position: "fixed",
@@ -18,7 +18,7 @@ const customStyles = {
     backgroundColor: "rgba(0,0,0,0)",
   },
   content: {
-    top: "28%",
+    top: "8%",
     left: "85%",
     right: "auto",
     bottom: "auto",
@@ -75,6 +75,9 @@ function Setting(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
+        <div>
+          <img className="catt" src="/cat.png"></img>
+        </div>
         <button onClick={closeModal}>Закрыть</button>
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Цвета</h2>
         {/* <div>I am a modal</div> */}

@@ -1,32 +1,51 @@
-.content_div{
-    margin-top: 165px;
+.content_div {
+  margin-top: 165px;
 }
 
-.filmInfo_div{
-    display: flex;
-    border: 1px solid rgba(255, 255, 255, 0.089);
-    border-radius: 15px;
-    padding: 15px;
+.filmInfo_div {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  border-radius: 15px;
+  padding: 15px;
 }
-.filmInfo_div img{
-    border-radius: 10px;
+.filmInfo_div img {
+  border-radius: 10px;
 }
-.filmDesc_div{
-    height: max-content;
-    margin-top: auto;
-    margin-left: 50px;
+.filmDesc_div {
+  height: max-content;
+  margin-top: auto;
+  margin-left: 50px;
 }
-.btn_watch{
-    border-radius: 10px;
-    background: rgba(186, 157, 90, 1);
-    height: 70px;
-    width: 300px;
-    font-size: 28px;
-    color: white;
-    font-weight: Bold;
-    margin-top: 50px;
+.btn_watch {
+  border-radius: 10px;
+  background: rgba(186, 157, 90, 1);
+  height: 70px;
+  width: 300px;
+  font-size: 28px;
+  color: white;
+  font-weight: Bold;
+  margin-top: 50px;
 }
-.btn_watch:hover{
-    cursor: pointer;
-    background: rgba(108, 86, 34, 1);
+.btn_watch:hover {
+  cursor: pointer;
+  background: rgba(108, 86, 34, 1);
 }
+input[type="checkbox"]:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: red;
+}
+input[type="checkbox"]:checked {
+  background: url("../../../../public/Paw.svg") 0 0px no-repeat;
+}
+.Checkbox {
+  color: aliceblue;
+}
+.Checkbox:checked {
+  color: aliceblue;
+}
+/* .icon {
+  color: currentColor;
+} */

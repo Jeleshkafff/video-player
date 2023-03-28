@@ -2,8 +2,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/Jeleshkafff/video-player">
-    <img src="./screen1.png" alt="Logo" border="1px">
-    <img src="./screen2.png" alt="Logo" border="1px">
+    <img src="./public/screen1.png" alt="Logo" border="1px">
+    <img src="./public/screen2.png" alt="Logo" border="1px">
   </a>
 
   <h2 align="center"><strong>True Tech Hack «Адаптация фильмов для людей с особыми потребностями»</strong></h3>

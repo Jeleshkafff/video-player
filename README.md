@@ -21,7 +21,7 @@
 
 ### Требования к установке
 
-- [NPM: 17+](https://www.npmjs.com/package/npm)
+- [NPM: 9.1+](https://www.npmjs.com/package/npm)
 
 - [node: 18+](https://nodejs.org/en)
 
@@ -31,7 +31,7 @@
 
 1. Загрузите локальную версию репозитория
    ```sh
-   git clone https://github.com/Jeleshkafff/video-player
+   git clone https://github.com/Jeleshkafff/video-player.git
    ```
 2. Перейдите в загруженный репозиторий
    ```sh

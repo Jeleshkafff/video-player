@@ -1,0 +1,94 @@
+.content_div {
+  margin-top: 165px;
+  /* background-image: url("../../../../public/topi.webp"); */
+  /* background-repeat: no-repeat; */
+  /* background-position: 10px; */
+}
+
+.filmInfo_div {
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.089);
+  border-radius: 15px;
+  padding: 15px;
+  z-index: 3;
+  /* position: fixed; */
+}
+.filmInfo_div img {
+  border-radius: 10px;
+}
+.filmDesc_div {
+  height: max-content;
+  margin-top: auto;
+  margin-left: 50px;
+}
+.btn_watch {
+  border-radius: 10px;
+  background: rgba(186, 157, 90, 1);
+  height: 70px;
+  width: 300px;
+  font-size: 28px;
+  color: white;
+  font-weight: Bold;
+  margin-top: 50px;
+}
+.btn_watch:hover {
+  cursor: pointer;
+  background: rgba(108, 86, 34, 1);
+}
+input[type="checkbox"]:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: red;
+}
+input[type="checkbox"]:checked {
+  background: url("../../../../public/Paw.svg") 0 0px no-repeat;
+}
+.Checkbox {
+  color: aliceblue;
+}
+.Checkbox:checked {
+  color: aliceblue;
+}
+/* .icon {
+  color: currentColor;
+} */
+.epilep {
+  /* display: inline-block; */
+  height: 50px;
+  display: flex;
+
+  flex-direction: row;
+
+  justify-content: flex-start;
+}
+.h5_test {
+  margin: 0;
+  padding-top: 15px;
+  /* display: block; */
+}
+.Checkbox {
+  width: 53px;
+  /* display: block; */
+}
+h5:first-child {
+  color: #b674c4;
+}
+/* img:first-child {
+  width: 260px;
+  height: 100%;
+} */
+.imege {
+  height: 400px;
+}
+.topi {
+  position: absolute;
+  width: 70%;
+  height: 85%;
+  top: 100px;
+  left: 250px;
+  z-index: 2;
+}
+.topi_bg {
+}

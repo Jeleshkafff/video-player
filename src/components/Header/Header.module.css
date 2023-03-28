@@ -1,0 +1,33 @@
+.header_div{
+    display: flex;
+    width: 1180px;
+    /* margin: 0 auto; */
+    justify-content: center;
+    align-items: center;
+    padding-top: 36px;
+}
+.logo{
+    margin-right: 55px;
+    height: 33px;
+}
+#navLink{
+    text-decoration: none;
+    color: white;
+    width: max-content;
+    height: max-content;
+}
+.chapters_div{
+    display: flex;
+}
+.chapterLink:not(:last-child){
+    margin-right: 50px;
+}
+.search{
+    height: 40px;
+    width: 220px;
+    border-radius: 10px;
+    background: rgba(18, 40, 64, 1);
+    margin-left: 107px;
+    margin-right: 37px;
+    border: none;
+}

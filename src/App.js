@@ -4,14 +4,18 @@ import VideoPlayer from "./components/VideoPlayer";
 import path from "./videos/video.mp4";
 import "./App.css";
 import { StyledEngineProvider } from "@mui/material/styles";
+import { Router, Routes,Route } from 'react-router-dom';
+import FilmPage from "./components/FilmPage"
+
 const App = (props) => {
   console.log(path);
   return (
     <StyledEngineProvider injectFirst>
       <div>
-        {/* <div className="color"></div> */}
-
-        <VideoPlayer src={path} />
+        <Routes>
+          <Route path="/" element={<FilmPage/>} /> 
+          <Route path="/video" element={<VideoPlayer src={path} />} /> 
+        </Routes>
       </div>
     </StyledEngineProvider>
   );

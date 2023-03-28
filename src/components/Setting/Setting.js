@@ -7,7 +7,7 @@ import "./Setting.css";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
+// import "../../../../public/cat.png";
 const customStyles = {
   overlay: {
     position: "fixed",
@@ -16,14 +16,17 @@ const customStyles = {
     right: 0,
     bottom: 0,
     backgroundColor: "rgba(0,0,0,0)",
+    textAlign: "center",
   },
   content: {
-    top: "28%",
+    top: "16%",
     left: "85%",
     right: "auto",
     bottom: "auto",
     backgroundColor: "rgba(0, 0, 0, 0.75)",
     color: "rgb(255, 255, 255)",
+    textAlign: "center",
+    // padding: 10
     // marginRight: "-50%",
     // transform: "translate(-50%, -50%)",
   },
@@ -65,7 +68,7 @@ function Setting(props) {
   };
   return (
     <div className="Back">
-      <button onClick={openModal}>
+      <button className="control-btn" onClick={openModal}>
         <i className="material-icons">build</i>
       </button>
       <Modal
@@ -75,7 +78,10 @@ function Setting(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <button onClick={closeModal}>Закрыть</button>
+        <div>
+          <img className="catt" src="/cat.png"></img>
+        </div>
+        {/* <button onClick={closeModal}>Закрыть</button> */}
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Цвета</h2>
         {/* <div>I am a modal</div> */}
         <form>
@@ -156,6 +162,7 @@ function Setting(props) {
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
               onClick={handleClick}
+              // color="#111"
             >
               Темы
             </Button>
@@ -176,69 +183,71 @@ function Setting(props) {
               }}
               anchorPosition={{ left: 1030, top: 700 }}
             >
-              <div>
-                <h4>Дейтераномалия</h4>
-                <button
-                  className="color_preset"
-                  onClick={(event) => {
-                    handleClose();
-                    event.preventDefault();
-                    localStorage.setItem("red", 183);
-                    localStorage.setItem("green", 124);
-                    localStorage.setItem("blue", 99);
-                    localStorage.setItem("nothing", 25);
-                    onChange({ red: 183 });
-                    onChange({ green: 124 });
-                    onChange({ blue: 99 });
-                    onChange({ nothing: 25 });
-                  }}
-                >
-                  ))
-                </button>
+              <div className="trtr">
+                <div className="menu_div">
+                  <h4>Дейтераномалия</h4>
+                  <button
+                    className="color_preset"
+                    onClick={(event) => {
+                      handleClose();
+                      event.preventDefault();
+                      localStorage.setItem("red", 183);
+                      localStorage.setItem("green", 124);
+                      localStorage.setItem("blue", 99);
+                      localStorage.setItem("nothing", 25);
+                      onChange({ red: 183 });
+                      onChange({ green: 124 });
+                      onChange({ blue: 99 });
+                      onChange({ nothing: 25 });
+                    }}
+                  >
+                    {"<3"}
+                  </button>
+                </div>
+                <div className="menu_div">
+                  <h4>Протаномалия</h4>
+                  <button
+                    className="color_preset"
+                    onClick={(event) => {
+                      handleClose();
+                      event.preventDefault();
+                      localStorage.setItem("red", 146);
+                      localStorage.setItem("green", 72);
+                      localStorage.setItem("blue", 194);
+                      localStorage.setItem("nothing", 25);
+                      onChange({ red: 146 });
+                      onChange({ green: 72 });
+                      onChange({ blue: 194 });
+                      onChange({ nothing: 25 });
+                    }}
+                  >
+                    {"<3"}
+                  </button>
+                </div>
+                <div className="menu_div">
+                  <h4>Тританопия</h4>
+                  <button
+                    className="color_preset"
+                    onClick={(event) => {
+                      handleClose();
+                      event.preventDefault();
+                      localStorage.setItem("red", 224);
+                      localStorage.setItem("green", 110);
+                      localStorage.setItem("blue", 102);
+                      localStorage.setItem("nothing", 19);
+                      onChange({ red: 224 });
+                      onChange({ green: 110 });
+                      onChange({ blue: 102 });
+                      onChange({ nothing: 25 });
+                    }}
+                  >
+                    {"<3"}
+                  </button>
+                </div>
+                {/* <MenuItem onClick={}>Profile</MenuItem> */}
+                {/* <MenuItem onClick={}>My account</MenuItem> */}
+                {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
               </div>
-              <div>
-                <h4>Протаномалия</h4>
-                <button
-                  className="color_preset"
-                  onClick={(event) => {
-                    handleClose();
-                    event.preventDefault();
-                    localStorage.setItem("red", 146);
-                    localStorage.setItem("green", 72);
-                    localStorage.setItem("blue", 194);
-                    localStorage.setItem("nothing", 25);
-                    onChange({ red: 146 });
-                    onChange({ green: 72 });
-                    onChange({ blue: 194 });
-                    onChange({ nothing: 25 });
-                  }}
-                >
-                  ))
-                </button>
-              </div>
-              <div>
-                <h4>Тританопия</h4>
-                <button
-                  className="color_preset"
-                  onClick={(event) => {
-                    handleClose();
-                    event.preventDefault();
-                    localStorage.setItem("red", 224);
-                    localStorage.setItem("green", 110);
-                    localStorage.setItem("blue", 102);
-                    localStorage.setItem("nothing", 19);
-                    onChange({ red: 224 });
-                    onChange({ green: 110 });
-                    onChange({ blue: 102 });
-                    onChange({ nothing: 25 });
-                  }}
-                >
-                  ))
-                </button>
-              </div>
-              {/* <MenuItem onClick={}>Profile</MenuItem> */}
-              {/* <MenuItem onClick={}>My account</MenuItem> */}
-              {/* <MenuItem onClick={handleClose}>Logout</MenuItem> */}
             </Menu>
           </div>
 

@@ -135,7 +135,7 @@ class VideoPlayer extends Component {
   render() {
     let style = {
       position: "absolute",
-      width: "1600px",
+      width: "100%",
       height: "800px",
 
       // padding: "1000px",
